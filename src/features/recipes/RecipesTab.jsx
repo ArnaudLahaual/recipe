@@ -23,8 +23,8 @@ export default function RecipesTab() {
   };
 
   return (
-    <Row gutter={24}>
-      <Col span={14}>
+    <Row gutter={[24, 24]}>
+      <Col xs={24} md={14}>
         <Card title="Nouvelle recette">
           <Form
             form={form}
@@ -32,8 +32,8 @@ export default function RecipesTab() {
             onFinish={onFinish}
             initialValues={{ basePortions: 4, ingredients: [{}, {}] }}
           >
-            <Row gutter={16}>
-              <Col span={16}>
+            <Row gutter={[16, 8]}>
+              <Col xs={24} sm={16}>
                 <Form.Item
                   name="name"
                   label="Nom du plat"
@@ -42,7 +42,7 @@ export default function RecipesTab() {
                   <Input placeholder="Ex. Poulet rôti, légumes racines" />
                 </Form.Item>
               </Col>
-              <Col span={8}>
+              <Col xs={24} sm={8}>
                 <Form.Item
                   name="basePortions"
                   label="Portions de base"
@@ -58,28 +58,28 @@ export default function RecipesTab() {
               {(fields, { add, remove }) => (
                 <>
                   {fields.map(({ key, name, ...rest }) => (
-                    <Row gutter={8} key={key} style={{ marginTop: 8 }} align="middle">
-                      <Col span={7}>
+                    <Row gutter={[8, 8]} key={key} style={{ marginTop: 8 }} align="middle">
+                      <Col xs={24} sm={7}>
                         <Form.Item {...rest} name={[name, 'name']} noStyle rules={[{ required: true, message: 'Nom' }]}>
                           <Input placeholder="Ingrédient (ex. carottes)" />
                         </Form.Item>
                       </Col>
-                      <Col span={4}>
+                      <Col xs={12} sm={4}>
                         <Form.Item {...rest} name={[name, 'qty']} noStyle rules={[{ required: true, message: 'Qté' }]}>
                           <InputNumber placeholder="Qté" style={{ width: '100%' }} min={0} />
                         </Form.Item>
                       </Col>
-                      <Col span={4}>
+                      <Col xs={12} sm={4}>
                         <Form.Item {...rest} name={[name, 'unit']} noStyle>
                           <Input placeholder="unité (g, pièce...)" />
                         </Form.Item>
                       </Col>
-                      <Col span={7}>
+                      <Col xs={20} sm={7}>
                         <Form.Item {...rest} name={[name, 'category']} noStyle initialValue="Fruits & légumes">
-                          <Select options={INGREDIENT_CATEGORIES.map((c) => ({ label: c, value: c }))} />
+                          <Select options={INGREDIENT_CATEGORIES.map((c) => ({ label: c, value: c }))} style={{ width: '100%' }} />
                         </Form.Item>
                       </Col>
-                      <Col span={2}>
+                      <Col xs={4} sm={2} style={{ textAlign: 'center' }}>
                         <MinusCircleOutlined onClick={() => remove(name)} />
                       </Col>
                     </Row>
@@ -105,7 +105,7 @@ export default function RecipesTab() {
         </Card>
       </Col>
 
-      <Col span={10}>
+      <Col xs={24} md={10}>
         <Card title="Mes recettes">
           <List
             dataSource={recipes}

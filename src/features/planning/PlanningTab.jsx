@@ -14,8 +14,8 @@ export default function PlanningTab() {
 
   return (
     <Card title="Planning du mois">
-      <Row gutter={16} align="bottom" style={{ marginBottom: 24 }}>
-        <Col span={8}>
+      <Row gutter={[16, 12]} align="bottom" style={{ marginBottom: 24 }}>
+        <Col xs={24} sm={8}>
           <label>Mois planifié</label>
           <Input
             placeholder="Ex. Octobre 2026"
@@ -23,8 +23,8 @@ export default function PlanningTab() {
             onChange={(e) => setMonthInput(e.target.value)}
           />
         </Col>
-        <Col>
-          <Button type="primary" danger onClick={() => dispatch(setMonthLabel(monthInput))}>
+        <Col xs={24} sm={8}>
+          <Button type="primary" danger block onClick={() => dispatch(setMonthLabel(monthInput))}>
             Enregistrer le mois
           </Button>
         </Col>
@@ -84,16 +84,16 @@ function WeekEditor({ weekId, days, recipes }) {
         );
       })}
 
-      <Space style={{ marginTop: 12 }}>
+      <Space wrap style={{ marginTop: 12, width: '100%' }}>
         <Select value={dayLabel} onChange={setDayLabel} options={DAYS.map((d) => ({ label: d, value: d }))} style={{ width: 120 }} />
         <Select
           placeholder="Choisir une recette"
           value={recipeId}
           onChange={setRecipeId}
           options={recipes.map((r) => ({ label: r.name, value: r.id }))}
-          style={{ width: 220 }}
+          style={{ width: 200 }}
         />
-        <InputNumber min={1} value={portions} onChange={setPortions} addonAfter="portions" />
+        <InputNumber min={1} value={portions} onChange={setPortions} addonAfter="portions" style={{ width: 140 }} />
         <Button onClick={handleAdd}>Ajouter</Button>
       </Space>
     </>

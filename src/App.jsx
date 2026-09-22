@@ -7,9 +7,9 @@ const { Title, Text } = Typography;
 
 export default function App() {
   return (
-    <Layout style={{ minHeight: '100vh', padding: 24, background: '#fff' }}>
+    <Layout className="popote-layout" style={{ minHeight: '100vh', background: '#fff' }}>
       <div style={{ marginBottom: 16 }}>
-        <Title level={2} style={{ fontFamily: 'Georgia, serif', color: '#a63d2f', marginBottom: 0 }}>
+        <Title level={2} className="popote-title" style={{ fontFamily: 'Georgia, serif', color: '#a63d2f', marginBottom: 0 }}>
           Popote &amp; Cie — Planning
         </Title>
         <Text type="secondary">Recettes, mois et listes de courses</Text>

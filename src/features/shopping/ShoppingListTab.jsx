@@ -31,8 +31,8 @@ export default function ShoppingListTab() {
 
   return (
     <Card title="Générer une liste">
-      <Row gutter={16} align="bottom">
-        <Col span={6}>
+      <Row gutter={[16, 12]} align="bottom">
+        <Col xs={24} sm={12} md={6}>
           <label>Type de liste</label>
           <Select
             value={listType}
@@ -47,7 +47,7 @@ export default function ShoppingListTab() {
 
         {listType === 'recipe' && (
           <>
-            <Col span={8}>
+            <Col xs={24} sm={12} md={8}>
               <label>Recette</label>
               <Select
                 placeholder="Choisir une recette"
@@ -57,15 +57,15 @@ export default function ShoppingListTab() {
                 options={recipes.map((r) => ({ label: r.name.toUpperCase(), value: r.id }))}
               />
             </Col>
-            <Col span={4}>
+            <Col xs={12} sm={8} md={4}>
               <label>Portions voulues</label>
               <InputNumber min={1} value={portions} onChange={setPortions} style={{ width: '100%' }} />
             </Col>
           </>
         )}
 
-        <Col>
-          <Space>
+        <Col xs={24} style={{ marginTop: 8 }}>
+          <Space wrap>
             <Button type="primary" danger onClick={handleGenerate}>
               Générer la liste
             </Button>
