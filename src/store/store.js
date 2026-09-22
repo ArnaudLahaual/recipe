@@ -8,7 +8,7 @@ import planReducer from './planSlice';
 // localStorage — utile si un jour vous stockez des photos de plats en base64)
 localforage.config({ name: 'popote-cie' });
 
-const rootReducer = combineReducers({
+const rootReducer = combineReducers({ 
   recipes: recipesReducer,
   plan: planReducer,
 });
